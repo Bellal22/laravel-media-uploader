@@ -22,7 +22,7 @@ trait HasUploader
         $tokens = Arr::wrap($tokens);
 
         if (count($tokens) == 0) {
-            $tokens = Arr::wrap(request('media'));
+            $tokens = Arr::wrap(request('media') ?: request($collection));
         }
 
         $query = TemporaryFile::query();
